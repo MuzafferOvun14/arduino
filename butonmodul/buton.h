@@ -38,7 +38,6 @@ class Buton{
          digitalWrite(led2,LOW);  
          yansonDurum=1;
       }
-
     }
     void check(){
       if(digitalRead(buton1)==HIGH&&digitalRead(buton2)==HIGH){
