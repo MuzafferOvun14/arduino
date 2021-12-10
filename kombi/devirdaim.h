@@ -14,7 +14,13 @@ class Devirdaim{
       calismaLed=cLed;
     }
     boolean checkCalisma(){
-      if(digitalRead(butonPin)==HIGH) return true; else return false;
+      if(digitalRead(butonPin)==HIGH){
+        calisma=true;
+        return true; 
+      }else {
+        calisma=false;
+        return false;
+      }
     }
     void check(){
       if(checkCalisma()==true) digitalWrite(calismaLed,HIGH); else digitalWrite(calismaLed,LOW);
@@ -25,7 +31,9 @@ class Devirdaim{
         int sDeger=analogRead(potPin);
         sDeger=sDeger/10;
         return sDeger;
-     
+    }
+    void setSuSicaklik(int ss){
+      suSicaklik=ss;
     }
   
 };
