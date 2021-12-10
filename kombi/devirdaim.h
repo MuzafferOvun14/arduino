@@ -7,6 +7,7 @@ class Devirdaim{
     int butonPin=3;
     int potPin=A0;
     int calismaLed=8;
+    boolean rezistans=false;
   public:
     Devirdaim(int bPin, int pPin, int cLed){
       butonPin=bPin;
@@ -24,8 +25,12 @@ class Devirdaim{
     }
     void check(){
       if(checkCalisma()==true) digitalWrite(calismaLed,HIGH); else digitalWrite(calismaLed,LOW);
-      Serial.print("Sistem Sıcaklığı :");
-      Serial.println(sicaklik());   
+      anlikSicaklik=sicaklik();
+      if(anlikSicaklik<suSicaklik) rezistans=true; else rezistans=false;
+      
+    }
+    boolean getRezistans(){
+      return  rezistans; 
     }
     int sicaklik(){
         int sDeger=analogRead(potPin);
